@@ -1,0 +1,57 @@
+body {
+    position: relative;
+    margin: 5px;
+    background: #000a;
+    width: 990px;
+    height: 120px;
+    overflow: hidden;
+    color: white;
+    font-size: 25px;
+    font-family: Consolas, monospace;
+}
+
+#ppText {
+    font-size: 50px;
+}
+
+#urText {
+    display: flex;
+    position: absolute;
+    bottom: 0;
+    left: 480px;
+    flex-direction: column;
+    text-align: center;
+}
+
+#stats {
+    display: flex;
+    position: absolute;
+    top: 0;
+    right: 0;
+    justify-content: space-around;
+    width: 320px;
+    text-align: center;
+}
+
+#hits {
+    display: flex;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    justify-content: space-around;
+    width: 320px;
+    text-align: center;
+}
+
+#stats>div,
+#hits>div {
+    width: 55px;
+}
+
+.small {
+    font-size: 14px;
+}
+
+.odometer-formatting-mark {
+    display: none;
+}
