@@ -1,9 +1,9 @@
 body {
     position: relative;
-    margin: 5px;
+    margin: -5px 5px 5px;
     background: #000a;
-    width: 990px;
-    height: 120px;
+    width: 640px;
+    height: 50px;
     overflow: hidden;
     color: white;
     font-size: 25px;
@@ -17,19 +17,9 @@ body {
 #urText {
     display: flex;
     position: absolute;
-    bottom: 0;
-    left: 480px;
+    top: 10px;
+    left: 320px;
     flex-direction: column;
-    text-align: center;
-}
-
-#stats {
-    display: flex;
-    position: absolute;
-    top: 0;
-    right: 0;
-    justify-content: space-around;
-    width: 320px;
     text-align: center;
 }
 
@@ -37,9 +27,9 @@ body {
     display: flex;
     position: absolute;
     right: 0;
-    bottom: 0;
+    top: 10px;
     justify-content: space-around;
-    width: 320px;
+    width: 260px;
     text-align: center;
 }
 
@@ -49,7 +39,7 @@ body {
 }
 
 .small {
-    font-size: 14px;
+    font-size: 12px;
 }
 
 .odometer-formatting-mark {

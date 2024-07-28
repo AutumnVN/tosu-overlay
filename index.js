@@ -5,17 +5,11 @@
     ws.addEventListener('message', ({ data }) => onMessage(data));
 })();
 
-const title = document.querySelector('#title');
-const difficulty = document.querySelector('#difficulty');
 const pp = document.querySelector('#pp');
 const ppFC = document.querySelector('#ppFC');
 const ifFC = document.querySelector('#ifFC');
 const ur = document.querySelector('#ur');
 const urText = document.querySelector('#urText');
-const cs = document.querySelector('#cs');
-const ar = document.querySelector('#ar');
-const od = document.querySelector('#od');
-const hp = document.querySelector('#hp');
 const h100 = document.querySelector('#h100');
 const h100Small = document.querySelector('.h100 .small');
 const h50 = document.querySelector('#h50');
@@ -30,55 +24,6 @@ function onMessage(data) {
     if (json.error) return;
 
     const { state, beatmap, play, performance, resultsScreen } = json;
-
-    const artistTitle = `${beatmap.artist} - ${beatmap.title}`;
-    const stars = `(${beatmap.stats.stars.total.toFixed(2)}*)`;
-    const mapperStars = `(${beatmap.mapper}, ${beatmap.stats.stars.total.toFixed(2)}*)`;
-    const artistTitleStars = `${artistTitle} ${stars}`;
-    const artistTitleMapperStars = `${artistTitle} ${mapperStars}`;
-    const diff = `[${beatmap.version}]`;
-    const mods = resultsScreen.mods.name ? `+${resultsScreen.mods.name}` : play.mods.name ? `+${play.mods.name}` : '';
-    const diffMods = `${diff} ${mods}`;
-    const diffModsStars = `${diff} ${mods} ${stars}`;
-    const diffModsMapperStars = `${diff} ${mods} ${mapperStars}`;
-
-    if (artistTitle.length > diffMods.length) {
-        title.textContent = artistTitle.length <= 50
-            ? artistTitle
-            : beatmap.title.length <= 50
-                ? beatmap.title
-                : beatmap.title.slice(0, 47) + '...';
-
-        difficulty.textContent = diffModsMapperStars.length <= 50
-            ? diffModsMapperStars
-            : diffModsStars.length <= 50
-                ? diffModsStars
-                : diffMods.length <= 50
-                    ? diffMods
-                    : diff.length <= 50
-                        ? diff
-                        : `[${beatmap.version.slice(0, 50 - 2 - mods.length)}...]`;
-    } else {
-        title.textContent = artistTitleMapperStars.length <= 50
-            ? artistTitleMapperStars
-            : artistTitleStars.length <= 50
-                ? artistTitleStars
-                : artistTitle.length <= 50
-                    ? artistTitle
-                    : beatmap.title.length <= 50
-                        ? beatmap.title
-                        : beatmap.title.slice(0, 47) + '...';
-
-        difficulty.textContent = diffMods.length <= 50
-            ? diffMods
-            : diff.length <= 50
-                ? diff
-                : `[${beatmap.version.slice(0, 50 - 2 - mods.length)}...]`;
-    }
-    cs.textContent = Math.round(beatmap.stats.cs.converted * 10) / 10;
-    ar.textContent = Math.round(beatmap.stats.ar.converted * 10) / 10;
-    od.textContent = Math.round(beatmap.stats.od.converted * 10) / 10;
-    hp.textContent = Math.round(beatmap.stats.hp.converted * 10) / 10;
 
     switch (state.name) {
         case 'Play':
